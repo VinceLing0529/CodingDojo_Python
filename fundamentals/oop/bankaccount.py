@@ -25,6 +25,9 @@ class BankAccount:
         self.total = self.intrate/100*self.balance
         print(self.total)
         return self
+    @classmethod
+    def allinfor(cls,balance,yi):
+        print(f"Balance : {balance}, yield interest: {yi}")
 
 x=BankAccount(2)
 
@@ -33,3 +36,5 @@ x.deposit(200).deposit(200).deposit(200).withdraw(300).yield_interest().display_
 y=BankAccount(3,500)
 
 y.deposit(200).deposit(200).withdraw(100).withdraw(100).withdraw(300).withdraw(300).yield_interest().display_account_info()
+
+y=BankAccount.allinfor(200,3)
