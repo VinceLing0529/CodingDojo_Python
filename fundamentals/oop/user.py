@@ -1,9 +1,11 @@
 class User:
-    def __init__(self):
-        self.name="tom"
-        self.balance = 300
+    def __init__(self,name,balance):
+        self.name=name
+        self.balance = balance
         self.otherbanlance=200
         self.othername=""
+    def make_deposit(self,amount):
+        self.balance+=amount
     def make_withdraw(self,amount):
         self.balance-=amount
     def display_user_balance(self):
@@ -13,9 +15,23 @@ class User:
         self.balance-=amount
         self.otherbanlance+=amount
         
-x=User()
-x.make_withdraw(100)
-x.display_user_balance()
-x.transfer_money("mary",200)
-print(x.otherbanlance)
-print(x.balance)
+a=User("Henry",500)
+a.make_deposit(200)
+a.make_deposit(200)
+a.make_deposit(200)
+a.make_withdraw(100)
+a.display_user_balance()
+
+a=User("Tom",300)
+a.make_deposit(200)
+a.make_deposit(200)
+a.make_withdraw(100)
+a.make_withdraw(100)
+a.display_user_balance()
+
+a=User("MARY",1000)
+a.make_deposit(200)
+a.make_withdraw(100)
+a.make_withdraw(100)
+a.make_withdraw(100)
+a.display_user_balance()
