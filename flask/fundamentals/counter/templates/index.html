@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="/" method="post">
+        <input type="submit" name="button" value="Add2">
+        <input type="submit" name="button" value="Reset">
 
+    </form>
+
+    
     <h1 style="text-align: center;">Counter</h1>
-    <h2 style="text-align: center;">{{session["count"]}} times</h2>
-
+    <h2 style="text-align: center;">Counter is {{session["count"]}} times</h2>
+    <h2 style="text-align: center;">The number you actual visit this website is {{session["actual"]}} times</h2>
 </body>
 </html>
