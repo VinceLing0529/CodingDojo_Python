@@ -11,13 +11,15 @@
         <h1>Welcome to the Great Number Game</h1>
         <h2>I am thinking of a number between 1 and 100</h2>
         <h2>Take a guess!</h2>
+    {% if session["count"] <= 5 %}
         {% if session["actual"]== None%}
         <form method="post">
             <input type="number" name ="number">
             <input type="submit" name="sumbit" value="sumbit"> 
         </form>
         {% elif session["true"]> session["actual"]%}
-        <p>Too Small!</p>
+            <h1>Too low!</h1>
+
         <form method="post">
             <input type="number" name ="number">
             <input type="submit" name="sumbit" value="sumbit"> 
@@ -36,7 +38,13 @@
             <input type="submit" name="sumbit" value="playagain!"> 
         </form>
         {% endif %}
-
+        <p>it took your {{session["count"]}} times to guess</p>
+    {% else %}
+        <p>{{session["true"]}} was the right number! You lose!</p>
+        <form action="/destory">
+            <input type="submit" name="sumbit" value="playagain!"> 
+        </form>
+    {% endif %}
     </div>
 </body>
 </html>

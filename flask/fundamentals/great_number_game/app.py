@@ -5,6 +5,11 @@ app.secret_key = 'keep it secret, keep it safe'
 
 @app.route('/',methods=['GET','POST'])          
 def index():
+    if 'count' not in session:
+        session['count']=0
+    else:
+        session['count']+=1
+
     try:
         session['actual'] = int(request.form['number'])
     except Exception:
