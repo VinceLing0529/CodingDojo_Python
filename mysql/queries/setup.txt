@@ -1,0 +1,10 @@
+select  from users;
+
+INSERT INTO users (first_name, last_name) 
+VALUES('mary', 'wang');
+
+UPDATE twitter.users 
+SET first_name = 'kobe'
+WHERE id=1;
+
+DELETE FROM users WHERE id7
