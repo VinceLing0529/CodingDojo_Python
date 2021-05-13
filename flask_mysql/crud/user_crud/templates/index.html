@@ -15,7 +15,7 @@
       <th>Full Name</th>
       <th>Email</th>
       <th>Created at</th>
-      <th>Actions</th>
+      <th>Action</th>
     </tr>
     {% for i in all_users %}
     <tr>
@@ -23,11 +23,12 @@
         <td>{{i['first_name']+i['last_name']}}</td>
         <td>{{i['email']}}</td>
         <td>{{i['created_at']}}</td>
+        <td><a href="/{{i['id']}}">Show </a>l<a href="/{{i['id']}}/edit"> Edit </a>l<a href="/{{i['id']}}/delete"> Delete </a>l
+
+        </td>
       </tr>
     {% endfor %}
     </table>
-    <form action="/new",method="post">
-        <input type="submit" name="sumbit" value="Add a new User"> 
-    </form>
+    <a href="/new">Adding a New User</a>
 </body>
 </html>

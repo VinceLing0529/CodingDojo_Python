@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User {{ show_result[0]['id'] }}              <a href="/">Home</a></h1>
+    <h2>Full Name:  {{ show_result[0]['first_name']+" "+ show_result[0]['last_name']}}</h2>
+    <h2>Email: {{show_result[0]['email']}}</h2>
+    <h2>Created at:{{show_result[0]['created_at']}} </h2>
+    <h2>Last Updated at:{{show_result[0]['updated_at']}} </h2>
+    <a href="/{{show_result[0]['id']}}/edit">edit</a>
+    <a href="/{{show_result[0]['id']}}/delete">delete</a>
+</body>
+</html>
