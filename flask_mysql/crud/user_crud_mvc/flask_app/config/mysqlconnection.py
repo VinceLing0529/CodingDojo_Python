@@ -1,5 +1,6 @@
 import pymysql.cursors
 class MySQLConnection:
+    #asdasd
     def __init__(self, db):
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', # change the user and password as needed
