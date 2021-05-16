@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin:200px;
+        }
+        .sub{
+            flex:1;
+        }
+        .box{
+            border-style: solid;
+        }
+        .text{
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="sub">
+        <h1>New books</h1>
+        <form action="/add_book" method='post'>
+            Title: <input type="text" name='title'><br/>
+            Number of pages: <input type="text" name='num_of_pages'><br/>
+            <input type="submit" value="create">
+        </form>
+        <div style="margin-top: 200px;"> <a href="/">Home</a> </div>
+       
+    </div>
+    <div class="sub">
+        <h1>All books</h1>
+        <div class='box'>
+        {% for i in books %}
+        <div class='text'><a href="/books/{{i['id']}}">{{i['title']}}</a><br/></div>
+        {% endfor %}
+        </div>    
+        <div style="margin-top: 200px;"> </div>
+    </div>
+</div>
+</body>
+</html>

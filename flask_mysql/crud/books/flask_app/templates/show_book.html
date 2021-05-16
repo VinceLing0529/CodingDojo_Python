@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .main{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin:200px;
+      }
+      .sub{
+          flex:1;
+      }
+  </style>
+</head>
+<body>
+  <div class='main'>
+    <div class='sub'>
+      <h1>Title: {{author_and_book[0]['title']}}</h1>
+      <h1>Favorited by:</h1>
+        {% for i in author_and_book %}
+        <h2>{{i['name']}}</h2>
+        {% endfor %}
+
+        <a href="/">Home</a>
+      </div>
+      <div class='sub'>
+        <h1>Add Book's Favorite</h1>
+        <form action="/add_one_author" method='post'>
+          Book: <select name="author_id" id="">
+            {% for i in authors %}
+            <option value="{{i['id']}}">{{i['name']}}</option>
+            {% endfor %}
+            <input type="hidden" name="book_id" value="{{author_and_book[0]['book.id']}}">
+            <input type="submit" value='Add'>
+          </select>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
