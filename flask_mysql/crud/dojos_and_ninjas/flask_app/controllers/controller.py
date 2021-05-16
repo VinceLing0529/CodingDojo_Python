@@ -7,7 +7,10 @@ from flask_app.config.mysqlconnection import connectToMySQL
     # import the function that will return an instance of a connection
 from flask import Flask,render_template,request, redirect,session
 
-
+@app.route('/')
+def re_index():
+    return redirect("/dojos")
+    
 @app.route('/dojos')
 def index():
     
