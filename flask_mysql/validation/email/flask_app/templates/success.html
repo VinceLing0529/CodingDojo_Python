@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div style="background-color: green;color: black;height: 100px;text-align: center;">
+            <h1>The email you entered {{ new['email']}} is valid</h1>                   <!-- display each message in a paragraph tag -->
+        </div>
+    <h1>Email Address entered</h1>
+    {% for i in all %}
+    <h2>{{i['email']}}   {{i['created_at']}}</h2>
+    <form action="/delete" method='post'>
+        <input type="hidden" name="id" value="{{i['id']}}">
+        <input type="submit">
+    </form>
+    {% endfor %}
+<a href="/"><button>Go Back</button></a>
+
+</body>
+</html>
