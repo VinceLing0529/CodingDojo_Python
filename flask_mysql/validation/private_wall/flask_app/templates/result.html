@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            display: flex;
+            justify-content: space-between;
+        }
+        .content {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        fieldset{
+            border-style: none;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">
+    <h1>Coding Dojo Wall</h1>
+    <h2>Welcome! {{current_user[0]['first_name']}} <a href="/logout">logout</a></h2>
+</div>
+<div class='content'>
+    <div class="receive">
+        <h1>Messages for you</h1>
+        {% if receive!=() %}
+        {% for i in receive %}
+        <h2>{{i['sender_first_name']}} said</h2>
+        <p>"{{i['messages']}}"                                      
+           <form action="/delete" method='post'>
+            <input type="hidden" name="receive_id" value="{{receive[0]['id']}}">
+            <input type="hidden" name="send_id" value="{{i['sender_id']}}">
+            <input type="hidden" name="message" value="{{i['messages']}}">
+            <input type="submit" value='Delete'>
+        </form>
+        
+        
+        </p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div>
+        <h1>Send message</h1>
+        {% for i in users %}
+        <form action="/send" method="post">
+            
+            <fieldset>
+                    <label for="first_name">{{i['first_name']}}</label>
+                    <input type="hidden" name="send_id" value=" {{current_user[0]['id']}}">
+                    <input type="hidden" name="receive_id" value="{{i['id']}}">
+                    <input type="text" name='message'>
+                    <input type="submit">
+            </fieldset>
+
+
+        </form>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

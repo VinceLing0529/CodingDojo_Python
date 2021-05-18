@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        fieldset{
+            border-style: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login and Registration</h1>
+    <div class="content">
+    
+        <div class="registration">
+            
+            <h2>Registration</h2>
+            <form action="/create" method="post">
+
+                <fieldset>
+                    <legend>
+                        <label for="first_name">First Name</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='fnless' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% if category=='fnletter' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="text" name="fname">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="last_name">Last Name</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='lnless' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% if category=='lnletter' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="text" name="lname">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="email">Email</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='invalidemail' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% if category=='existemail' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="text" name="email">
+                </fieldset>
+                <fieldset>
+                    <legend>
+
+                        <label for="pw">Password</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='pwless' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="password" name="pw">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="confirm_pw">Confirm Password</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='pwmatch' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="password" name="confirm_pw">
+                </fieldset>
+                <button>Create User</button>
+            </form>
+        </div>
+        <div class="login">
+
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <fieldset>
+                    <legend>
+                        <label for="email">Email</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='login' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="text" name="email">
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        <label for="pw">Password</label>
+                    </legend>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                      {% if category=='login' %}
+                      <li class="{{ category }}">{{ message }}</li>
+                      {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+                    <input type="password" name="pw">
+                </fieldset>
+                <button>Login</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
