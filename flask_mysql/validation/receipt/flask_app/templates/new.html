@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            display: flex;
+            justify-content: space-between;
+        }
+        fieldset{
+            border-style: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<div style="margin-left:10%;margin-right:10%">
+<div class="header">
+    <h1>Add New Recipe</h1>
+    <div>
+    <a href="/recipes">Dashbard</a>
+    <a href="/logout">Logout</a>
+</div>
+</div>
+<div class= "content">
+    <form action="/recipes/create" method="post">
+        <fieldset>
+                <label for="name">Name: </label><input type="text" name="name">
+        </fieldset>
+        <fieldset>
+            <legend>
+            <label for="description">Description</label>
+            </legend>
+            <textarea name="description"  rows="4" cols="50"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <label for="instruction">Instructions</label>
+            </legend>
+            <textarea name="instruction"  rows="8" cols="50"></textarea>
+        </fieldset>
+        <fieldset>
+            
+                <label for="under_30">Under 30 mins?</label>
+            
+            <input type="radio" name="under_30" value="Yes">
+            <label for="under_30">Yes</label>
+            <input type="radio" name="under_30" value="No">
+            <label for="under_30">No</label>
+        </fieldset>
+        <input type="submit" value="Create">
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  {% for message in messages %}
+  <li >{{ message }}</li>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+</div>
+</body>
+</html>

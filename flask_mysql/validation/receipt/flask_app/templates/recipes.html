@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+<div style="margin-left:10%;margin-right:10%">
+<div class="header">
+    <h1>Welcome {{current_user[0]['first_name']}}</h1>
+    <div>
+    <a href="/recipes/new">Create</a>
+    <a href="/logout">Logout</a>
+</div>
+</div>
+<div class= "content">
+    <h2>These are your recipes</h2>
+    <table >
+        <tr>
+          <th>Name</th>
+          <th>Under 30 minutes?</th>
+          <th>Actions</th>
+        </tr>
+
+       
+            {% for i in all_message%}
+            <tr>
+          <td>{{i.name}}</td>
+          <td>{{i.under}}</td>
+          <td><a href="/recipes/{{i.id}}">View Instructions</a> <a href="/recipes/{{i.id}}/edit">Edit</a> <a href="/recipes/{{i.id}}/delete">Delete</a> </td>
+        </tr>
+          {% endfor %}
+       
+
+      </table>
+</div>
+
+</div>
+</body>
+</html>
