@@ -86,7 +86,6 @@ function firstNonRepeated(nums) {
             return final 
         }
     }
-    return ""
 }
 
 const nums11 = [3, 5, 4, 3, 4, 6, 5];
@@ -110,3 +109,20 @@ var obj = { a: 'test1', b: 'test2' };
 if (Object.values(obj).indexOf('test1') > -1) {
    console.log('has test1');
 }
+
+
+function toCamelCase(str){
+
+    for(i = 0; i<str.length; i++){
+        if (str[i] == "-" || str[i] == "_"){
+            
+            str = str.substring(0, [i])+str.charAt(i+1).toUpperCase() +str.substring([i+2], str.length);
+
+        }
+        
+    }
+    return(str)
+}
+str1="the-stealth-warrior"
+
+console.log(toCamelCase(str1))
